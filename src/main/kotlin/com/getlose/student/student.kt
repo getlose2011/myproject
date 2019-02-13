@@ -14,9 +14,10 @@ fun main(args: Array<String>) {
     stu.print()
 }
 
-class Student(var name:String="",var english:Int,var math:Int){
+class Student(var name:String,var english:Int,var math:Int){
 
     fun print(){
+
         print(name+"\t"+english+"\t"+math)
     }
 

@@ -2,13 +2,16 @@ package com.getlose
 
 //打maina 加tab鍵會出現main方法
 fun main(args: Array<String>) {
+    var s:String? = null;
+    println(s?.length);
+    println(s!!.length);//會產生NullPointException
     //println("hello kotlin")
     //不用加new即可新增物件
     //Human().hello()
-    val h = Human(66.0f,1.11f)
-    print(h.Bmi())
-    var c : Char = 'A';
-    System.out.println(c.toInt() > 90);
+    //val h = Human(66.0f,1.11f)
+    //print(h.Bmi())
+    //var c : Char = 'A';
+    //System.out.println(c.toInt() > 90);
     //h.hello()
 //    var age:Int = 20
 //    age = 23
