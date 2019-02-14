@@ -13,8 +13,41 @@ public class Students {
         this.math = math;
     }
 
+    public int higher(){
+
+        if(english > math){
+            return english;
+        }
+        return (english > math)?english:math;
+    }
+
     public void print(){
-        System.out.println(name+"\t"+english+"\t"+math);
+        char grading = 'F';
+        System.out.print(name+"\t"+english+"\t"+math);
+        System.out.println("\t"+(getAverage()<60?"fail":"pass"));
+        //二個int相除不會有小數點
+        switch(getAverage()/10){
+            case 10:
+            case 9:
+                grading = 'A';
+                break;
+            case 8:
+                grading = 'B';
+                break;
+            case 7:
+                grading = 'C';
+                break;
+            case 6:
+                grading = 'D';
+                break;
+            default:
+                grading = 'F';
+        }
+        System.out.println("\t"+grading);
+    }
+
+    public int getAverage(){
+        return (math+english)/2;
     }
 
 }
