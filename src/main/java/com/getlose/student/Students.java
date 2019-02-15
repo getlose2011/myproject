@@ -6,6 +6,7 @@ public class Students {
     String name;
     int english;
     int math;
+    static int pass = 60;//類別層級，不同物件使用同一個資料
 
     public Students(String name, int english, int math){
         this.name = name;
@@ -24,7 +25,7 @@ public class Students {
     public void print(){
         char grading = 'F';
         System.out.print(name+"\t"+english+"\t"+math);
-        System.out.println("\t"+(getAverage()<60?"fail":"pass"));
+        System.out.print("\t"+(getAverage()<pass?"fail":"pass"));
         //二個int相除不會有小數點
         switch(getAverage()/10){
             case 10:

@@ -7,8 +7,15 @@ fun main(args: Array<String>) {
 }
 
 private fun userInput() {
-    val stu = Student("aa", 33, 55)
-    stu.print()
+    Student.pass = 40
+    val stu1 = Student("aa", 33, 55)
+    val stu2 = Student("bb", 3, 55)
+    val stu3 = Student("cc", 65, 55)
+    val gstu4 = GraduateStudent("dd", 65, 55,90)
+    stu1.print()
+    stu2.print()
+    stu3.print()
+    gstu4.print()
 //    val scanner = Scanner(System.`in`)
 //    print("please enter student's name:")
 //    var name = scanner.next()
@@ -20,12 +27,21 @@ private fun userInput() {
 //    stu.print()
 //    println("high score ${stu.higher()}")
 }
+//open => 其它物件才可以繼承
+open class Student(var name:String,var english:Int,var math:Int){
 
-class Student(var name:String,var english:Int,var math:Int){
+    //static
+    companion object {
+        @JvmStatic//for java使用會少一層Companion
+        var pass = 80
+        fun test(){
+            println("test")
+        }
+    }
 
-    fun print(){
+    open fun print(){
         print(name+"\t"+english+"\t"+math+"\t"+
-            getAverage()+"\t"+if(getAverage()<60)"fail" else "pass")
+            getAverage()+"\t"+if(getAverage()<pass)"fail" else "pass")
         println("\t"+grading())
     }
 
@@ -68,4 +84,17 @@ class Student(var name:String,var english:Int,var math:Int){
     //方法可以直接運算
     fun getAverage() = (math+english)/2
 
+}
+
+class GraduateStudent(name:String,english: Int,math: Int,var thesis:Int):Student(name,english,math){
+    companion object {
+        var pass = 70
+    }
+
+    override fun print() {
+        //super.print()
+        print(name+"\t"+english+"\t"+math+"\t"+ thesis +"\t"+
+                getAverage()+"\t"+if(getAverage()<pass)"fail" else "pass")
+        println("\t"+grading())
+    }
 }
