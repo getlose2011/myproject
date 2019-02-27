@@ -6,6 +6,7 @@ data class Ticket(val origi:Int, val destination: Int, val price:Int)
 
 fun main(args: Array<String>) {
     var ticket = Ticket(1,22,20)
+    println(ticket)
     val s = "33444433"
     print(s.validate())
     //println((1..10).random())

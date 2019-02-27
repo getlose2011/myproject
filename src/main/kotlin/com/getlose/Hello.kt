@@ -2,6 +2,7 @@ package com.getlose
 
 //打maina 加tab鍵會出現main方法
 fun main(args: Array<String>) {
+
     //var s:String? = null;
     //println(s?.length);
     //println(s!!.length);//會產生NullPointException
